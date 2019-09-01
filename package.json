@@ -10,8 +10,9 @@
   },
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
+    "deploy": "now",
     "start": "next start"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^12.7.3",
     "@types/react": "^16.9.2",
+    "now": "^16.1.2",
     "typescript": "^3.6.2"
   }
 }

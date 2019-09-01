@@ -9,13 +9,13 @@ nvm <.nvmrc
 Install dependencies:
 
 ```bash
-yarn
+yarn global add now
 ```
 
 Run locally:
 
 ```bash
-yarn dev
+now dev
 open http://localhost:3000
 ```
 
