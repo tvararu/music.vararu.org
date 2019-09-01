@@ -17,4 +17,4 @@ jobs:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-      - run: now dev
+      - run: npx now dev
