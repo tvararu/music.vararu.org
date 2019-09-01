@@ -1,6 +1,13 @@
 {
   "name": "music.vararu.org",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "A music streaming service",
+  "author": "theo@vararu.org",
+  "license": "MIT",
+  "repository": "https://github.com/tvararu/music.vararu.org",
+  "engines": {
+    "node": "10.16.0"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
