@@ -25,6 +25,12 @@ Deploy:
 yarn deploy
 ```
 
+Run cypress end to end tests:
+
+```bash
+yarn run cypress open
+```
+
 ## License
 
 [MIT](LICENSE.txt).
