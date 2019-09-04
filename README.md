@@ -1,4 +1,4 @@
-# music.vararu.org
+# music.vararu.org [![CircleCI](https://circleci.com/gh/tvararu/music.vararu.org.svg?style=svg)](https://circleci.com/gh/tvararu/music.vararu.org)
 
 Install correct version of `node` using `nvm`:
 
