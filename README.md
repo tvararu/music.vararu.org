@@ -9,13 +9,13 @@ nvm <.nvmrc
 Install dependencies:
 
 ```bash
-yarn global add now
+yarn
 ```
 
 Run locally:
 
 ```bash
-now dev
+./node_modules/.bin/now dev
 open http://localhost:3000
 ```
 
@@ -28,7 +28,9 @@ yarn deploy
 Run cypress end to end tests:
 
 ```bash
-yarn run cypress open
+yarn run cypress open # Interactive test runner
+# or
+yarn test:cy # Headless
 ```
 
 ## License
