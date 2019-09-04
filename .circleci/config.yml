@@ -16,5 +16,4 @@ jobs:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache
-      - run: ./node_modules/.bin/now dev &
-      - run: yarn test:cy
+      - run: yarn ci
