@@ -17,6 +17,6 @@ jobs:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-      - run: ./node_modules/.bin/now dev &
+      - run: ./node_modules/.bin/now dev
       - run: yarn run wait-on tcp:3000
       - run: yarn test:cy
