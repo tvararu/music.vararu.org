@@ -14,7 +14,7 @@
     "dev": "next dev",
     "deploy": "now",
     "start": "next start",
-    "test:cy": "cypress run --spec cypress/integration/**/*"
+    "test:cy": "cypress run"
   },
   "dependencies": {
     "next": "9.0.5",
