@@ -11,6 +11,7 @@ jobs:
       - restore_cache:
           keys:
             - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-
       - run: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
       - save_cache:
           key: yarn-packages-{{ checksum "yarn.lock" }}
