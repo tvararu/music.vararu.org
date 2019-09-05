@@ -8,9 +8,11 @@ jobs:
           TERM: xterm
     steps:
       - checkout
+      - run: yarn cache list
       - restore_cache:
           keys:
             - yarn-packages-{{ checksum "yarn.lock" }}
+      - run: yarn cache list
       - run: yarn install --frozen-lockfile
       - save_cache:
           key: yarn-packages-{{ checksum "yarn.lock" }}
