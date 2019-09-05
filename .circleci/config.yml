@@ -13,7 +13,9 @@ jobs:
           keys:
             - yarn-packages-{{ checksum "yarn.lock" }}
       - run: yarn cache list
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - run: ls ~/.cache
+      - run: ls ~/.cache/yarn
       - save_cache:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
