@@ -1,9 +1,9 @@
 import renderer from "react-test-renderer";
-import Index from "./index";
+import Home from "./Home";
 
-describe("Index", () => {
+describe("Home", () => {
   it("renders correctly", () => {
-    const component = renderer.create(<Index />);
+    const component = renderer.create(<Home />);
     const tree = component.toJSON();
 
     expect(tree).toMatchSnapshot();

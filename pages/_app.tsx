@@ -1,6 +1,6 @@
 import App from "next/app";
 import Head from "next/head";
-import "./main.css";
+import "../lib/main.css";
 
 export default class MyApp extends App {
   render() {

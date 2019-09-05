@@ -17,4 +17,5 @@ jobs:
           paths:
             - ~/.cache
       - run: yarn jest
+      - run: yarn build
       - run: yarn ci

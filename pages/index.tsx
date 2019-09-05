@@ -1,3 +1,2 @@
-const Index = () => <p className="uppercase">Hello, world</p>;
-
-export default Index;
+import Home from "../components/pages/Home";
+export default Home;
