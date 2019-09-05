@@ -1,3 +1,3 @@
-const Home = () => <p>Hello, world</p>;
+const Home = () => <p className="uppercase">Hello, world</p>;
 
 export default Home;
