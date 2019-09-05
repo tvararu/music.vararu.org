@@ -12,8 +12,8 @@
   "scripts": {
     "build": "next build",
     "ci": "server-test './node_modules/.bin/now dev' 3000 test:cy",
-    "dev": "next dev",
     "deploy": "now",
+    "dev": "next dev",
     "start": "next start",
     "test:cy": "cypress run"
   },

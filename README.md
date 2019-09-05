@@ -15,7 +15,7 @@ yarn
 Run locally:
 
 ```bash
-./node_modules/.bin/now dev
+yarn now dev
 open http://localhost:3000
 ```
 
@@ -28,9 +28,9 @@ yarn deploy
 Run cypress end to end tests:
 
 ```bash
-yarn run cypress open # Interactive test runner
+yarn cypress open # Interactive test runner
 # or
-yarn test:cy # Headless
+yarn cypress run # Headless
 ```
 
 ## License
