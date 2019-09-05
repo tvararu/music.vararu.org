@@ -1,1 +1,1 @@
-module.exports = (on, config) => {};
+export {};

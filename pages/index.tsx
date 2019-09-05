@@ -1,3 +1,3 @@
-const Home = () => <p className="uppercase">Hello, world</p>;
+const Index = () => <p className="uppercase">Hello, world</p>;
 
-export default Home;
+export default Index;
