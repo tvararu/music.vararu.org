@@ -11,7 +11,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "ci": "server-test './node_modules/.bin/now dev' 3000 test:cy",
+    "ci": "server-test 'yarn now dev' 3000 test:cy",
     "deploy": "now",
     "dev": "next dev",
     "start": "next start",

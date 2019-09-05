@@ -25,6 +25,12 @@ Deploy:
 yarn deploy
 ```
 
+Run jest unit tests:
+
+```bash
+yarn jest
+```
+
 Run cypress end to end tests:
 
 ```bash

@@ -16,4 +16,5 @@ jobs:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache
+      - run: yarn jest
       - run: yarn ci
