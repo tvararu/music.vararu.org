@@ -1,4 +1,19 @@
+import App, { Container } from "next/app";
+import Head from "next/head";
 import "./main.css";
-import App from "next/app";
 
-export default App;
+export default class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props;
+
+    return (
+      <Container>
+        <Head>
+          <title>music.vararu.org</title>
+          <meta name="description" content="A music streaming service" />
+        </Head>
+        <Component {...pageProps} />
+      </Container>
+    );
+  }
+}
