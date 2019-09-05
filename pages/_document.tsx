@@ -4,7 +4,10 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <title>music.vararu.org</title>
+          <meta name="description" content="A music streaming service" />
+        </Head>
         <body>
           <Main />
           <NextScript />
