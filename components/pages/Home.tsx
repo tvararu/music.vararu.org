@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const files = [
   "/static/music/Clams Casino/Rainforest/01 Natural.mp3",
@@ -10,7 +10,7 @@ const files = [
 
 const Button = ({ children, onClick }) => (
   <button
-    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mr-1"
     onClick={onClick}
   >
     {children}
@@ -19,28 +19,63 @@ const Button = ({ children, onClick }) => (
 
 const Player = () => {
   const [count, setCount] = useState(0);
-  const currentSong = files[count];
-  const skipToPreviousSong = () =>
-    setCount((files.length + count - 1) % files.length);
-  const skipToNextSong = () => setCount((count + 1) % files.length);
+  const [playing, setPlaying] = useState(false);
+  const [track, setTrack] = useState(null);
+
+  useEffect(() => {
+    if (track) track.pause();
+    const newTrack = new Audio(files[count]);
+    newTrack.onplay = () => setPlaying(true);
+    newTrack.onpause = () => setPlaying(false);
+    newTrack.onended = () => playing && playNext();
+    setTrack(newTrack);
+    if (playing) newTrack.play();
+  }, [count]);
+
+  const playPrevious = () => {
+    const newCount = count - 1;
+    const reachedStart = newCount < 0;
+    if (reachedStart) {
+      setPlaying(false);
+      track.pause();
+      setCount(0);
+    } else {
+      setCount(newCount);
+    }
+  };
+
+  const playNext = () => {
+    const newCount = count + 1;
+    const reachedEnd = newCount >= files.length;
+    if (reachedEnd) {
+      setPlaying(false);
+      setCount(0);
+    } else {
+      setCount(newCount);
+    }
+  };
+
+  const playPause = () => {
+    const newPlaying = !playing;
+    setPlaying(newPlaying);
+    if (newPlaying) {
+      track.play();
+    } else {
+      track.pause();
+    }
+  };
 
   return (
     <>
-      <p>{count}</p>
-      <p>Current song: {currentSong}</p>
-      <audio controls src={currentSong}>
-        Your browser does not support the audio element.
-      </audio>
-      <Button onClick={skipToPreviousSong}>Previous song</Button>
-      <Button onClick={skipToNextSong}>Next song</Button>
+      <p>Song count: {count}</p>
+      <p>Current song: {files[count]}</p>
+      <Button onClick={playPrevious}>Previous</Button>
+      <Button onClick={playPause}>{playing ? "Pause" : "Play"}</Button>
+      <Button onClick={playNext}>Next</Button>
     </>
   );
 };
 
-const Home = () => (
-  <>
-    <Player />
-  </>
-);
+const Home = () => <Player />;
 
 export default Home;
