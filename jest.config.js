@@ -7,5 +7,6 @@ module.exports = {
   },
   testPathIgnorePatterns: ["/.next/", "/node_modules/", "/cypress/"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
-  collectCoverage: true
+  collectCoverage: true,
+  setupFilesAfterEnv: ["./jest.setup.ts"]
 };
