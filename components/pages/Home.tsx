@@ -27,7 +27,7 @@ const Player = () => {
     const newTrack = new Audio(files[count]);
     newTrack.onplay = () => setPlaying(true);
     newTrack.onpause = () => setPlaying(false);
-    newTrack.onended = () => playing && playNext();
+    newTrack.onended = () => playNext();
     setTrack(newTrack);
     if (playing) newTrack.play();
   }, [count]);
