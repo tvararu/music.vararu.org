@@ -2,41 +2,59 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
-  <p>
-    Song count: 0
-  </p>
-  <p>
-    Current song: /static/music/Clams Casino/Rainforest/01 Natural.mp3
-  </p>
-  <button
-    class="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 mr-1"
+  <div
+    class="jsx-1741780680 flex flex-col justify-center lg:h-screen"
   >
-    ⏮️
-    <span
-      class="jsx-140587568"
+    <div
+      class="jsx-1741780680 wrapper relative"
     >
-      Previous
-    </span>
-  </button>
-  <button
-    class="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 mr-1"
-  >
-    ▶️
-    <span
-      class="jsx-140587568"
-    >
-      Play
-    </span>
-  </button>
-  <button
-    class="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 mr-1"
-  >
-    ⏭️
-    <span
-      class="jsx-140587568"
-    >
-      Next
-    </span>
-  </button>
+      <div
+        class="jsx-1741780680 flex flex-col items-center p-4"
+      >
+        <div
+          class="jsx-1741780680 h-64 w-64 bg-gray-200 mb-4"
+        />
+        <h2
+          class="jsx-1741780680 text-2xl font-bold"
+        >
+          01 Natural.mp3
+        </h2>
+      </div>
+      <div
+        class="jsx-1741780680 flex justify-center fixed lg:absolute bottom-0 w-screen"
+      >
+        <button
+          class="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 text-3xl border-2 border-gray-900 m-3"
+        >
+          ⏮️
+          <span
+            class="jsx-140587568"
+          >
+            Previous
+          </span>
+        </button>
+        <button
+          class="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 text-3xl border-2 border-gray-900 m-3"
+        >
+          ▶️
+          <span
+            class="jsx-140587568"
+          >
+            Play
+          </span>
+        </button>
+        <button
+          class="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 text-3xl border-2 border-gray-900 m-3"
+        >
+          ⏭️
+          <span
+            class="jsx-140587568"
+          >
+            Next
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;

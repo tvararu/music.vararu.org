@@ -11,7 +11,7 @@ const files = [
 
 const Button = ({ children, onClick }) => (
   <button
-    className="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 mr-1"
+    className="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 text-3xl border-2 border-gray-900 m-3"
     onClick={onClick}
   >
     {children}
@@ -91,13 +91,32 @@ const Player = () => {
   };
 
   return (
-    <>
-      <p>Song count: {count}</p>
-      <p>Current song: {files[count]}</p>
-      <Previous onClick={playPrevious} />
-      {playing ? <Pause onClick={playPause} /> : <Play onClick={playPause} />}
-      <Next onClick={playNext} />
-    </>
+    <div className="flex flex-col justify-center lg:h-screen">
+      <style jsx>{`
+        @media (min-width: 1024px) {
+          .wrapper {
+            height: 600px;
+          }
+        }
+      `}</style>
+      <div className="wrapper relative">
+        <div className="flex flex-col items-center p-4">
+          <div className="h-64 w-64 bg-gray-200 mb-4"></div>
+          <h2 className="text-2xl font-bold">
+            {files[count].split("/").pop()}
+          </h2>
+        </div>
+        <div className="flex justify-center fixed lg:absolute bottom-0 w-screen">
+          <Previous onClick={playPrevious} />
+          {playing ? (
+            <Pause onClick={playPause} />
+          ) : (
+            <Play onClick={playPause} />
+          )}
+          <Next onClick={playNext} />
+        </div>
+      </div>
+    </div>
   );
 };
 
