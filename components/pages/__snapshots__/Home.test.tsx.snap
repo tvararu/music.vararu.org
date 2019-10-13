@@ -9,19 +9,34 @@ exports[`matches snapshot 1`] = `
     Current song: /static/music/Clams Casino/Rainforest/01 Natural.mp3
   </p>
   <button
-    class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mr-1"
+    class="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 mr-1"
   >
-    Previous
+    ⏮️
+    <span
+      class="jsx-140587568"
+    >
+      Previous
+    </span>
   </button>
   <button
-    class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mr-1"
+    class="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 mr-1"
   >
-    Play
+    ▶️
+    <span
+      class="jsx-140587568"
+    >
+      Play
+    </span>
   </button>
   <button
-    class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mr-1"
+    class="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 mr-1"
   >
-    Next
+    ⏭️
+    <span
+      class="jsx-140587568"
+    >
+      Next
+    </span>
   </button>
 </DocumentFragment>
 `;

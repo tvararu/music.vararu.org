@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Sr from "./Sr";
 
 const files = [
   "/static/music/Clams Casino/Rainforest/01 Natural.mp3",
@@ -10,11 +11,35 @@ const files = [
 
 const Button = ({ children, onClick }) => (
   <button
-    className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mr-1"
+    className="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 mr-1"
     onClick={onClick}
   >
     {children}
   </button>
+);
+
+const Previous = ({ onClick }) => (
+  <Button onClick={onClick}>
+    ⏮️<Sr>Previous</Sr>
+  </Button>
+);
+
+const Play = ({ onClick }) => (
+  <Button onClick={onClick}>
+    ▶️<Sr>Play</Sr>
+  </Button>
+);
+
+const Pause = ({ onClick }) => (
+  <Button onClick={onClick}>
+    ⏸<Sr>Pause</Sr>
+  </Button>
+);
+
+const Next = ({ onClick }) => (
+  <Button onClick={onClick}>
+    ⏭️<Sr>Next</Sr>
+  </Button>
 );
 
 const Player = () => {
@@ -69,9 +94,9 @@ const Player = () => {
     <>
       <p>Song count: {count}</p>
       <p>Current song: {files[count]}</p>
-      <Button onClick={playPrevious}>Previous</Button>
-      <Button onClick={playPause}>{playing ? "Pause" : "Play"}</Button>
-      <Button onClick={playNext}>Next</Button>
+      <Previous onClick={playPrevious} />
+      {playing ? <Pause onClick={playPause} /> : <Play onClick={playPause} />}
+      <Next onClick={playNext} />
     </>
   );
 };

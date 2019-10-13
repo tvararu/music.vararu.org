@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="jsx-140587568"
+  >
+    Screen reader content
+  </span>
+</DocumentFragment>
+`;
