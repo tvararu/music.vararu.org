@@ -25,3 +25,6 @@ yarn-debug.log*
 yarn-error.log*
 
 cypress/screenshots
+
+public/library.json
+public/graph-library.json
