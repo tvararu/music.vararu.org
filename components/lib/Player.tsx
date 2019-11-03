@@ -1,14 +1,6 @@
 import { useState, useEffect } from "react";
 import Sr from "./Sr";
 
-const files = [
-  "/static/music/Clams Casino/Rainforest/01 Natural.mp3",
-  "/static/music/Clams Casino/Rainforest/02 Treetop.mp3",
-  "/static/music/Clams Casino/Rainforest/03 Waterfalls.mp3",
-  "/static/music/Clams Casino/Rainforest/04 Drowning.mp3",
-  "/static/music/Clams Casino/Rainforest/05 Gorilla.mp3"
-];
-
 const Button = ({ children, onClick }) => (
   <button
     className="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 text-3xl border-2 border-gray-900 m-3"
@@ -42,7 +34,7 @@ const Next = ({ onClick }) => (
   </Button>
 );
 
-const Player = () => {
+const Player = ({ files }) => {
   const [count, setCount] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [track, setTrack] = useState(null);

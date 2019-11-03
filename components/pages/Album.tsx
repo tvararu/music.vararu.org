@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import graph from "../../public/graph-library.json";
 import slugify from "../lib/slugify";
-import ArtistLink from "../lib/ArtistLink";
+import Player from "../lib/Player";
 
 const findArtist = (graph, slug) =>
   Object.keys(graph).find(artist => slugify(artist) == slug);
@@ -21,28 +21,13 @@ const Album = () => {
 
   const content = graph[artist][album];
 
-  return content ? (
-    <ul>
-      <li className="p-2">
-        <p>
-          <ArtistLink artist={artist} />
-        </p>
-        <p>
-          {album}: <code className="bg-gray-200">{slugify(album)}</code>
-        </p>
-        <p>Genre: {content.genre}</p>
-        <ul className="pl-4">
-          {Object.keys(content.tracks).map(n => (
-            <li>
-              {n}: {content.tracks[n].title}
-            </li>
-          ))}
-        </ul>
-      </li>
-    </ul>
-  ) : (
-    404
+  if (!content) return 404;
+
+  const files = Object.keys(content.tracks).map(
+    n => "/static/linked-music/" + content.tracks[n].filePath
   );
+
+  return <Player files={files} />;
 };
 
 export default Album;
