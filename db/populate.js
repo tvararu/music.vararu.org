@@ -6,7 +6,7 @@ const songs = process.argv.slice(2);
 
 if (songs.length === 0) {
   console.log(
-    'usage: find -E Music -regex ".*.(mp3|m4a)" -print0 | xargs -0 node populate2.js'
+    'usage: find -E Music -regex ".*.(mp3|m4a)" -print0 | xargs -0 node populate.js'
   );
   process.exit(1);
 }
