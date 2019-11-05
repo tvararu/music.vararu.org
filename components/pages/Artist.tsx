@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import graph from "../../public/graph-library.json";
+import fetch from "isomorphic-unfetch";
 import slugify from "../lib/slugify";
 import ArtistLink from "../lib/ArtistLink";
 import AlbumLink from "../lib/AlbumLink";
@@ -8,7 +8,7 @@ import AlbumLink from "../lib/AlbumLink";
 const findArtist = (graph, slug) =>
   Object.keys(graph).find(artist => slugify(artist) == slug);
 
-const Artist = () => {
+const Artist = ({ graph }) => {
   const router = useRouter();
   const artistSlug = router.query.artist;
   const artist = findArtist(graph, artistSlug);
@@ -37,5 +37,9 @@ const Artist = () => {
     404
   );
 };
+
+Artist.getInitialProps = async () => ({
+  graph: await (await fetch("http://localhost:3000/graph-library.json")).json()
+});
 
 export default Artist;

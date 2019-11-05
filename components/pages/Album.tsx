@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import graph from "../../public/graph-library.json";
+import fetch from "isomorphic-unfetch";
 import slugify from "../lib/slugify";
 import Player from "../lib/Player";
 
@@ -9,7 +9,7 @@ const findArtist = (graph, slug) =>
 const findAlbum = (graph, slug) =>
   Object.keys(graph).find(album => slugify(album) == slug);
 
-const Album = () => {
+const Album = ({ graph }) => {
   const router = useRouter();
   const artistSlug = router.query.artist;
   const albumSlug = router.query.album;
@@ -29,5 +29,9 @@ const Album = () => {
 
   return <Player files={files} />;
 };
+
+Album.getInitialProps = async () => ({
+  graph: await (await fetch("http://localhost:3000/graph-library.json")).json()
+});
 
 export default Album;
