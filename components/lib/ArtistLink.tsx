@@ -2,7 +2,7 @@ import Link from "next/link";
 import slugify from "./slugify";
 
 const ArtistLink = ({ artist }) => (
-  <Link href={`/${slugify(artist)}`}>
+  <Link href="/[artist]" as={`/${slugify(artist)}`}>
     <a className="underline">
       {artist}: <code className="bg-gray-200">{slugify(artist)}</code>
     </a>
