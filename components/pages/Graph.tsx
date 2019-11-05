@@ -1,8 +1,8 @@
-import graph from "../../public/graph-library.json";
+import fetch from "isomorphic-unfetch";
 import ArtistLink from "../lib/ArtistLink";
 import AlbumLink from "../lib/AlbumLink";
 
-const Graph = () => (
+const Graph = ({ graph }) => (
   <ul>
     {Object.keys(graph).map(artist => (
       <>
@@ -23,5 +23,9 @@ const Graph = () => (
     ))}
   </ul>
 );
+
+Graph.getInitialProps = async () => ({
+  graph: await (await fetch("http://localhost:3000/graph-library.json")).json()
+});
 
 export default Graph;
