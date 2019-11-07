@@ -1,6 +1,5 @@
 const fs = require("fs");
-const path = require("path");
-const jsmediatags = require("jsmediatags");
+const mm = require("music-metadata");
 
 const songs = process.argv.slice(2);
 
@@ -18,9 +17,12 @@ const parseTrack = track => parseInt(track.toString().split("/")[0], 10);
 const parseFilePath = filePath =>
   filePath.replace("/Users/tvararu/Music/Music/Media/Music/", "");
 
-songs.forEach(filePath => {
-  jsmediatags.read(filePath, {
-    onSuccess: ({ tags: { title, artist, album, year, track, genre } }) => {
+(async () => {
+  for(const filePath of songs) {
+
+    try {
+      const metadata = await mm.parseFile(filePath); // Ensure parsing of file is done in a serial manner
+      const {title, artist, album, year, track, genre} = metadata.common;
       parsedSongs.push({
         filePath: parseFilePath(filePath),
         artist,
@@ -30,17 +32,22 @@ songs.forEach(filePath => {
         title,
         track: parseTrack(track)
       });
-      if (parsedSongs.length == songs.length) {
+    } catch(err) {
+      console.log(`Error parsing ${filePath}: ${err.message}`);
+      continue;
+    }
+
+    try {
+      if (parsedSongs.length === songs.length) {
         parsedSongs.sort(sortByArtistAlbumTrack);
         outputLibrary();
         outputGraphLibrary();
       }
-    },
-    onError: error => {
-      console.log(":(", error.type, error.info);
+    } catch(err) {
+      console.log(`Error processing metadata: ${err.message}`);
     }
-  });
-});
+  }
+})();
 
 const sortByArtistAlbumTrack = (a, b) =>
   a.artist < b.artist
