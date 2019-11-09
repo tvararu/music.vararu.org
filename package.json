@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "https://github.com/tvararu/music.vararu.org",
   "engines": {
-    "node": "10.16.0"
+    "node": ">=10.0"
   },
   "private": true,
   "scripts": {
