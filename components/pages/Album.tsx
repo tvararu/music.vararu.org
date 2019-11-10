@@ -24,14 +24,14 @@ const Album = ({ graph }) => {
   if (!content) return 404;
 
   const files = Object.keys(content.tracks).map(
-    n => "/static/linked-music/" + content.tracks[n].filePath
+    n => "http://localhost:5000/" + content.tracks[n].filePath
   );
 
   return <Player files={files} />;
 };
 
 Album.getInitialProps = async () => ({
-  graph: await (await fetch("http://localhost:3000/graph-library.json")).json()
+  graph: await (await fetch("http://localhost:5000/graph-library.json")).json()
 });
 
 export default Album;

@@ -25,7 +25,7 @@ const Graph = ({ graph }) => (
 );
 
 Graph.getInitialProps = async () => ({
-  graph: await (await fetch("http://localhost:3000/graph-library.json")).json()
+  graph: await (await fetch("http://localhost:5000/graph-library.json")).json()
 });
 
 export default Graph;
