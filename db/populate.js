@@ -12,8 +12,6 @@ if (songs.length === 0) {
 
 const parsedSongs = [];
 
-const parseTrack = track => parseInt(track.toString().split("/")[0], 10);
-
 const parseFilePath = filePath =>
   filePath.replace("/Users/tvararu/Music/Music/Media/Music/", "");
 
@@ -27,9 +25,9 @@ const parseFilePath = filePath =>
         artist,
         album,
         year,
-        genre,
+        genre: genre[0],
         title,
-        track: parseTrack(track)
+        track: track.no
       });
     } catch (err) {
       console.log(`Error parsing ${filePath}: ${err.message}`);
