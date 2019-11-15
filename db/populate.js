@@ -18,11 +18,10 @@ const parseFilePath = filePath =>
   filePath.replace("/Users/tvararu/Music/Music/Media/Music/", "");
 
 (async () => {
-  for(const filePath of songs) {
-
+  for (const filePath of songs) {
     try {
       const metadata = await mm.parseFile(filePath); // Ensure parsing of file is done in a serial manner
-      const {title, artist, album, year, track, genre} = metadata.common;
+      const { title, artist, album, year, track, genre } = metadata.common;
       parsedSongs.push({
         filePath: parseFilePath(filePath),
         artist,
@@ -32,7 +31,7 @@ const parseFilePath = filePath =>
         title,
         track: parseTrack(track)
       });
-    } catch(err) {
+    } catch (err) {
       console.log(`Error parsing ${filePath}: ${err.message}`);
       continue;
     }
@@ -43,7 +42,7 @@ const parseFilePath = filePath =>
         outputLibrary();
         outputGraphLibrary();
       }
-    } catch(err) {
+    } catch (err) {
       console.log(`Error processing metadata: ${err.message}`);
     }
   }
