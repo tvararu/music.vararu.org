@@ -39,6 +39,6 @@
     "now": "^16.7.0",
     "start-server-and-test": "^1.10.6",
     "tailwindcss": "^1.1.4",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   }
 }
